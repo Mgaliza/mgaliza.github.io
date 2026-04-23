@@ -231,14 +231,14 @@ table.dataTable tbody td { padding:8px 12px; border:none; }
         </div>
       </div>
 
-      <div class="grid-21 mb16">
-        <div class="card">
-          <div class="section-hdr">
-            <span class="section-title">Distribuição por Tipo de Objeto</span>
-          </div>
-          <div id="chart-tipos-pie" style="height:420px"></div>
-        </div>
-      </div>
+      <div class="grid-1 mb16">
+  <div class="card">
+    <div class="section-hdr">
+      <span class="section-title">Distribuição por Tipo de Objeto</span>
+    </div>
+    <div id="chart-tipos-pie" style="height:420px"></div>
+  </div>
+</div>
 
       <div class="card">
         <div class="section-hdr">
@@ -424,17 +424,6 @@ function renderPage(id) {
 }
 
 function renderOverview() {
-  // Top 15 vereadores
-  const top15 = verData.slice(0, 15);
-  Plotly.newPlot('chart-vereadores', [
-    { type:'bar', orientation:'h',
-       y: top15.map(d=>d.Vereador).reverse(),
-       x: top15.map(d=>d.total).reverse(),
-       marker:{ color:'#3b82f6', opacity:0.85 },
-       text: top15.map(d=>fmt(d.total)).reverse(),
-       textposition:'outside', hovertemplate:'%{y}: %{x:,.0f}<extra></extra>'
-    }
-  ], plotLayout({ margin:{l:180,r:80,t:10,b:30} }), {responsive:true});
 
   // Tipos pie
   Plotly.newPlot('chart-tipos-pie', [
